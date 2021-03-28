@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="clock()">
+
+    <div class="datetime">
+        <div class="date">
+          <span id="datedata">DATE</span>
+        </div>
+
+        <div class="time">
+            <span id="hour">00</span>:
+            <span id="minutes">00</span>:
+            <span id="seconds">00</span>
+            <span id="period">AM</span>
+        </div>
+    </div>
+
+
+
+    <script>
+       function clock(){
+           var dd=document.getElementById("datedata")
+           var hou=document.getElementById("hour");
+           var min=document.getElementById("minutes");
+           var sec=document.getElementById("seconds");
+           var per=document.getElementById("period");
+
+           
+           var d= new Date().toDateString();
+           var h=new Date().getHours();
+           var mi= new Date().getMinutes();
+           var s=new Date().getSeconds();
+           var p="AM";
+
+           if(h>12){
+               p="PM"
+           }
+           dd.innerHTML = d;
+           hou.innerHTML = h;
+           min.innerHTML = mi;
+           sec.innerHTML = s;
+           per.innerHTML=p;
+
+          var interval=setInterval(clock,1000);
+           }
+    </script>
+</body>
+</html>
